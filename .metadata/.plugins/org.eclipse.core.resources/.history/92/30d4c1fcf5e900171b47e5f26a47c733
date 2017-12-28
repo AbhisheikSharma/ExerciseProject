@@ -1,0 +1,36 @@
+package pageFactory;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import utilityLibrary.ElementVerifications;
+
+public class DashboardPageFactory {
+	WebDriver driver;
+	ElementVerifications elementverifications;
+	boolean res;
+	
+	@FindBy(id="page_title")
+	WebElement page_header;
+	
+	@FindBy(xpath="//a[text()='Customers']")
+	WebElement customers_tab;
+	
+	public DashboardPageFactory(WebDriver driver) {
+		this.driver = driver;
+		elementverifications = new ElementVerifications(driver);
+		PageFactory.initElements(driver, this);
+		
+	}
+	
+	public void verifyDashboardAndClickCustomersTab() {
+		res = elementverifications.verifyElementVisible(page_header);
+		Assert.assertTrue("Issue in Dashboard screen load", res);
+		System.out.println("Dashboard header located - Right page loaded");
+		res = elementverifications.clickElement(customers_tab);
+		Assert.assertTrue("Customers tab not found on Dashboard screen", res);
+		}
+}

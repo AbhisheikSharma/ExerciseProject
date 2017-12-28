@@ -1,0 +1,10 @@
+<suite name="PracticeTests">
+	<test name="CustomerAndProductTests">
+		<parameter name="filteroption" value="Contains" />
+		<parameter name="textval" value="Abhisheik" />
+		<parameter name="bookname" value="Ruby Programming Essentials"/>
+		<classes>
+			<class name="testCases.UserCreationAndSearchTests" />
+		</classes>
+	</test>
+</suite>

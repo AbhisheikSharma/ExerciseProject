@@ -1,0 +1,62 @@
+package testCases;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import pageFactory.CustomersPageFactory;
+import pageFactory.DashboardPageFactory;
+import pageFactory.NewCustomerPageFactory;
+import utilityLibrary.RequiredCapabilities;
+public class UserCreationAndSearchTests {
+	WebDriver driver;
+	DashboardPageFactory dashboardpagefactory;
+	CustomersPageFactory customerspagefactory;
+	NewCustomerPageFactory newcustomerpagefactory;
+	boolean result;
+	@BeforeSuite
+	@Parameters({"browsername"})
+	public void configurations(String browsername) {
+		driver = RequiredCapabilities.setCapabilities(browsername);
+		
+	}
+	@BeforeClass
+	public void initialize() {
+		dashboardpagefactory = new DashboardPageFactory(driver);
+		customerspagefactory = new CustomersPageFactory(driver);
+		newcustomerpagefactory = new NewCustomerPageFactory(driver);
+		}
+	
+	@Test
+	public void createNewUser() {
+		result = dashboardpagefactory.verifyDashboardAndClickCustomersTab();
+		Assert.assertTrue(result, "Issue encountered in dashboard page load and unable to click Customers tab");
+		result = customerspagefactory.initiateNewCustomerCreation();
+		Assert.assertTrue(result, "Issue encountered in clicking New Customer button");
+		result = newcustomerpagefactory.createUser("data_from_excel", "data_from_excel", "data_from_excel", "data_from_excel");
+		Assert.assertTrue(result, "Issue encountered in entering data into new customer fields");
+	}
+	
+	@Test
+	@Parameters({"filteroption","textval"})
+	public void customerSearchWithFilters(String filteroption, String textval) {
+		result = dashboardpagefactory.verifyDashboardAndClickCustomersTab();
+		Assert.assertTrue(result, "Issue encountered in dashboard page load and unable to click Customers tab");
+		result = customerspagefactory.userNameFilter(filteroption);
+		Assert.assertTrue(result, "Issue encountered in finding Username search option");
+		customerspagefactory.enterUserName(textval);
+		result = customerspagefactory.clickFilterButton();
+		Assert.assertTrue(result, "Filter button not found");
+	}
+@AfterMethod
+public void tearOff() {
+	driver.quit();
+}
+}

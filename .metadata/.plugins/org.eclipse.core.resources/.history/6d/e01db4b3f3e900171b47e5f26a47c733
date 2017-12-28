@@ -1,0 +1,43 @@
+package utilityLibrary;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class ElementVerificationsAndActions {
+	WebDriver driver;
+	Object result;
+	
+	public ElementVerificationsAndActions(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public boolean clickElement(WebElement element) {
+		boolean elementstate = false;
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		result = wait.until(ExpectedConditions.elementToBeClickable(element));
+		if (!result.equals(null)) {
+			elementstate = true;
+			element.click();
+		} else {
+			System.out.println("Incorrect element state issue");
+		}
+
+		return elementstate;
+	}
+
+	public boolean verifyElementVisible(WebElement element) {
+		boolean elementstate = false;
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		result = wait.until(ExpectedConditions.visibilityOf(element));
+		if (!result.equals(null)) {
+			elementstate = true;
+			System.out.println("Element visible on screen");
+		} else {
+			System.out.println("Incorrect element state issue");
+		}
+		return elementstate;
+	}
+
+}

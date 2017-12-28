@@ -1,0 +1,16 @@
+package utilityLibrary;
+
+import com.relevantcodes.extentreports.ExtentReports;
+
+public class ExtentFactory {
+	public static ExtentReports getInstance() {
+		ExtentReports extent;
+		String Path =("./")+"/Reports/testresults.html";
+		System.out.println("Path");
+		extent = new ExtentReports(Path, false);
+		extent
+	     .addSystemInfo("Selenium Version", "x.xx")
+	     .addSystemInfo("Platform", "Wi Windows");
+		return extent;
+	}
+}

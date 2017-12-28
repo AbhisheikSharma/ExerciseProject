@@ -1,0 +1,53 @@
+package pageFactory;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import utilityLibrary.ElementVerificationsAndActions;
+
+public class CustomersPageFactory {
+	WebDriver driver;
+	ElementVerificationsAndActions elementverifications;
+	boolean res;
+	
+	@FindBy(xpath = "//a[text()='New Customer']")
+	WebElement newcustomer_button;
+	
+	@FindBy(xpath = "//div[@id='q_username_input']/select")
+	WebElement searchbyusername_options;
+	
+	@FindBy(xpath = "//div[@id='q_email_input']/select")
+	WebElement searchbyemail_options;
+	
+	@FindBy(xpath = "//input[@value='Filter']")
+	WebElement filter_button;
+	
+	@FindBy(xpath = "//a[@class='clear_filters_btn']")
+	WebElement clearfilters_button;
+	
+	@FindBy(xpath = "//a[@class='dropdown_menu_button']")
+	WebElement batch_action;
+	
+	@FindBy(xpath = "//input[@id='q_created_at_gteq_datetime']")
+	WebElement searchbycreationdate_start;
+	
+	@FindBy(xpath = "//input[@id='q_created_at_lteq_datetime']")
+	WebElement searchbycreationdate_end;
+	
+	public CustomersPageFactory(WebDriver driver) {
+		this.driver = driver;
+		elementverifications = new ElementVerificationsAndActions(driver);
+		PageFactory.initElements(driver, this);
+	}
+	
+	public void initiateNewCustomerCreation() {
+		res = elementverifications.clickElement(newcustomer_button);
+		Assert.assertTrue(res,"New Customer button not found");
+		newcustomer_button.click();
+	}
+	
+
+}

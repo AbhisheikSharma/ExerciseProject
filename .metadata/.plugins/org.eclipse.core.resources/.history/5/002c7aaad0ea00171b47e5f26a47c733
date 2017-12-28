@@ -1,0 +1,68 @@
+package testCases;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import pageFactory.CustomersPageFactory;
+import pageFactory.DashboardPageFactory;
+import pageFactory.NewCustomerPageFactory;
+import utilityLibrary.RequiredCapabilities;
+public class UserCreationAndSearchTests {
+	WebDriver driver;
+	DashboardPageFactory dashboardpagefactory;
+	CustomersPageFactory customerspagefactory;
+	NewCustomerPageFactory newcustomerpagefactory;
+	boolean result;
+	@BeforeClass
+	@Parameters({"browsername"})
+	public void configurations(String browsername) {
+		driver = RequiredCapabilities.setCapabilities(browsername);
+		
+	}
+	@BeforeMethod
+	public void initialize() {
+		dashboardpagefactory = new DashboardPageFactory(driver);
+		customerspagefactory = new CustomersPageFactory(driver);
+		newcustomerpagefactory = new NewCustomerPageFactory(driver);
+		}
+	
+	@Test
+	public void createNewUser() {
+		result = dashboardpagefactory.verifyDashboardAndClickCustomersTab();
+		Assert.assertTrue(result, "Issue encountered in dashboard page load and unable to click Customers tab");
+		result = customerspagefactory.initiateNewCustomerCreation();
+		Assert.assertTrue(result, "Issue encountered in clicking New Customer button");
+		result = newcustomerpagefactory.createUser_Username();
+		Assert.assertTrue(result, "Issue encountered in obtaining new username field");
+		result = newcustomerpagefactory.createUser_Password();
+		Assert.assertTrue(result, "Issue encountered in obtaining email field");
+		result = newcustomerpagefactory.createUser_Pwdhash();
+		Assert.assertTrue(result, "Issue encountered in obtaining password hash field");
+		result = newcustomerpagefactory.createUser_Pwdsalt();
+		Assert.assertTrue(result, "Issue encountered in obtaining password salt field");
+		newcustomerpagefactory.enterNewUserData("xxx", "yyy", "zzz", "aaa");
+		
+		
+	}
+	
+	@Test
+	@Parameters({"filteroption","textval"})
+	public void customerSearchWithFilters(String filteroption, String textval) {
+		result = dashboardpagefactory.verifyDashboardAndClickCustomersTab();
+		Assert.assertTrue(result, "Issue encountered in dashboard page load and unable to click Customers tab");
+		result = customerspagefactory.userNameFilter(filteroption);
+		Assert.assertTrue(result, "Issue encountered in finding Username search option");
+		customerspagefactory.enterUserName(textval);
+		result = customerspagefactory.clickFilterButton();
+		Assert.assertTrue(result, "Filter button not found");
+	}
+@AfterMethod
+public void tearOff() {
+	driver.quit();
+}
+}

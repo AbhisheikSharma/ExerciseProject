@@ -1,0 +1,9 @@
+<suite name="PracticeTests">
+<test name = "CustomerAndProductTests">
+<parameter name = "filteroption" value="Constains" /> 
+<parameter name = "textval" value="Abhisheik" /> 
+<classes>
+<class name="src.testCases.UserCreationAndSearch"/>
+</classes>
+</test>
+</suite>

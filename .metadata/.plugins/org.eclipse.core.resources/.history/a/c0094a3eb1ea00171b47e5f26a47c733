@@ -1,0 +1,51 @@
+package utilityLibrary;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class ElementVerificationsAndActions {
+	WebDriver driver;
+	Object result;
+	WebDriverWait wait;
+	
+	public ElementVerificationsAndActions(WebDriver driver) {
+		this.driver = driver;
+		wait = new WebDriverWait(driver, 10);
+	}
+
+	public boolean clickElement(WebElement element) {
+		boolean elementstate = false;
+		
+		result = wait.until(ExpectedConditions.elementToBeClickable(element));
+		if (!result.equals(null)) {
+			elementstate = true;
+			element.click();
+		} else {
+			System.out.println("Incorrect element state issue");
+		}
+
+		return elementstate;
+	}
+
+	public boolean verifyElementVisible(WebElement element) {
+		boolean elementstate = false;
+		result = wait.until(ExpectedConditions.visibilityOf(element));
+		if (!result.equals(null)) {
+			elementstate = true;
+		} else {
+			System.out.println("Incorrect element state issue");
+		}
+		return elementstate;
+	}
+	
+	public boolean selectDropDownValue(WebElement element, String filtertp) {
+		boolean elementstate = false;
+		result = wait.until(ExpectedConditions.visibilityOf(element));
+		Select sel = new Select(element);
+		sel.selectByVisibleText(filtertp);
+		return elementstate;
+	}
+}

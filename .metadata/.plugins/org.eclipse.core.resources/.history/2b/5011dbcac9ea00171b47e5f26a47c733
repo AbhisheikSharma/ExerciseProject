@@ -1,0 +1,63 @@
+package pageFactory;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+import utilityLibrary.ElementVerificationsAndActions;
+
+public class NewCustomerPageFactory {
+	WebDriver driver;
+	ElementVerificationsAndActions elementverifications;
+	boolean res;
+	
+	@FindBy(id="user_username")
+	WebElement username;
+	
+	@FindBy(id="user_username")
+	WebElement useremail;
+	
+	@FindBy(id="user_password_hash")
+	WebElement pwd_hash;
+	
+	@FindBy(id="user_password_salt")
+	WebElement pwd_salt;
+	
+	@FindBy(xpath = "//input[@name='commit']")
+	WebElement createuser_button;
+	
+	@FindBy(xpath = "//a[text()='Cancel']")
+	WebElement cancel_creation_button;
+	
+	public NewCustomerPageFactory(WebDriver driver) {
+		this.driver = driver;
+		elementverifications = new ElementVerificationsAndActions(driver);
+		PageFactory.initElements(driver, this);
+	}
+	
+	public boolean createUser(String uname, String email, String pwdhash, String pwdsalt) {
+		res = elementverifications.verifyElementVisible(username);
+		Assert.assertTrue(res, "Username field not visible");
+		res = elementverifications.verifyElementVisible(useremail);
+		Assert.assertTrue(res, "User email field not visible");
+		res = elementverifications.verifyElementVisible(pwd_hash);
+		Assert.assertTrue(res, "Password Hash field not visible");
+		res = elementverifications.verifyElementVisible(pwd_salt);
+		Assert.assertTrue(res, "Password salt field not visible");
+		res = elementverifications.verifyElementVisible(createuser_button);
+		Assert.assertTrue(res, "Create User button not visible");
+		username.clear();
+		useremail.clear();
+		pwd_hash.clear();
+		pwd_salt.clear();
+		username.sendKeys(uname);
+		useremail.sendKeys(email);
+		pwd_hash.sendKeys(pwdhash);
+		pwd_salt.sendKeys(pwdsalt);
+		createuser_button.click();
+		return res;
+	}
+
+}

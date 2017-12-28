@@ -1,0 +1,11 @@
+<suite name="PracticeTests">
+	<test name="CustomerAndProductTests">
+		<parameter name = "browsername" value="chrome"/>
+		<parameter name="filteroption" value="Contains" />
+		<parameter name="textval" value="Abhisheik" />
+		<parameter name="bookname" value="The Ruby Programming Language"/>
+		<classes>
+			<class name="testCases.UserCreationProductCreationAndSearches" />
+		</classes>
+	</test>
+</suite>

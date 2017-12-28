@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [PracticeTests]">
+  <parameter name="filteroption" value="Contains"/>
+  <parameter name="textval" value="Abhisheik"/>
+  <parameter name="browsername" value="chrome"/>
+  <parameter name="bookname" value="Ruby Programming Essentials"/>
+  <test name="CustomerAndProductTests(failed)">
+    <parameter name="filteroption" value="Contains"/>
+    <parameter name="textval" value="Abhisheik"/>
+    <parameter name="browsername" value="chrome"/>
+    <parameter name="bookname" value="Ruby Programming Essentials"/>
+    <classes>
+      <class name="testCases.UserCreationProductCreationAndSearches">
+        <methods>
+          <include name="tearOff"/>
+          <include name="configurations"/>
+          <include name="searchFeaturedProduct" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- testCases.UserCreationProductCreationAndSearches -->
+    </classes>
+  </test> <!-- CustomerAndProductTests(failed) -->
+</suite> <!-- Failed suite [PracticeTests] -->

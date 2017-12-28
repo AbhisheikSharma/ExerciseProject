@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="PracticeTests" duration-ms="40404" started-at="2017-12-28T13:27:38Z" finished-at="2017-12-28T13:28:18Z">
+    <groups>
+      <group name="productsrelatedregression">
+        <method signature="UserCreationProductCreationAndSearches.createNewProduct()[pri:3, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="createNewProduct" class="testCases.UserCreationProductCreationAndSearches"/>
+      </group> <!-- productsrelatedregression -->
+      <group name="customerrelatedregression">
+        <method signature="UserCreationProductCreationAndSearches.createNewUser()[pri:1, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="createNewUser" class="testCases.UserCreationProductCreationAndSearches"/>
+        <method signature="UserCreationProductCreationAndSearches.customerSearchWithFilters(java.lang.String, java.lang.String)[pri:2, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="customerSearchWithFilters" class="testCases.UserCreationProductCreationAndSearches"/>
+      </group> <!-- customerrelatedregression -->
+      <group name="smoke">
+        <method signature="UserCreationProductCreationAndSearches.createNewProduct()[pri:3, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="createNewProduct" class="testCases.UserCreationProductCreationAndSearches"/>
+        <method signature="UserCreationProductCreationAndSearches.createNewUser()[pri:1, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="createNewUser" class="testCases.UserCreationProductCreationAndSearches"/>
+        <method signature="UserCreationProductCreationAndSearches.customerSearchWithFilters(java.lang.String, java.lang.String)[pri:2, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="customerSearchWithFilters" class="testCases.UserCreationProductCreationAndSearches"/>
+        <method signature="UserCreationProductCreationAndSearches.searchFeaturedProduct(java.lang.String)[pri:4, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="searchFeaturedProduct" class="testCases.UserCreationProductCreationAndSearches"/>
+      </group> <!-- smoke -->
+      <group name="productrelatedregression">
+        <method signature="UserCreationProductCreationAndSearches.searchFeaturedProduct(java.lang.String)[pri:4, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="searchFeaturedProduct" class="testCases.UserCreationProductCreationAndSearches"/>
+      </group> <!-- productrelatedregression -->
+    </groups>
+    <test name="CustomerAndProductTests" duration-ms="40404" started-at="2017-12-28T13:27:38Z" finished-at="2017-12-28T13:28:18Z">
+      <class name="testCases.UserCreationProductCreationAndSearches">
+        <test-method status="PASS" signature="configurations(java.lang.String)[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="configurations" is-config="true" duration-ms="6691" started-at="2017-12-28T08:27:38Z" finished-at="2017-12-28T08:27:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configurations -->
+        <test-method status="PASS" signature="createNewUser()[pri:1, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="createNewUser" duration-ms="3115" started-at="2017-12-28T08:27:45Z" finished-at="2017-12-28T08:27:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNewUser -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="tearOff" is-config="true" duration-ms="1441" started-at="2017-12-28T08:27:48Z" finished-at="2017-12-28T08:27:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+        <test-method status="PASS" signature="configurations(java.lang.String)[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="configurations" is-config="true" duration-ms="6106" started-at="2017-12-28T08:27:49Z" finished-at="2017-12-28T08:27:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configurations -->
+        <test-method status="PASS" signature="customerSearchWithFilters(java.lang.String, java.lang.String)[pri:2, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="customerSearchWithFilters" duration-ms="2458" started-at="2017-12-28T08:27:55Z" finished-at="2017-12-28T08:27:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Contains]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Abhisheik]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- customerSearchWithFilters -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="tearOff" is-config="true" duration-ms="1057" started-at="2017-12-28T08:27:58Z" finished-at="2017-12-28T08:27:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+        <test-method status="PASS" signature="configurations(java.lang.String)[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="configurations" is-config="true" duration-ms="5744" started-at="2017-12-28T08:27:59Z" finished-at="2017-12-28T08:28:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configurations -->
+        <test-method status="PASS" signature="createNewProduct()[pri:3, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="createNewProduct" duration-ms="1725" started-at="2017-12-28T08:28:04Z" finished-at="2017-12-28T08:28:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createNewProduct -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="tearOff" is-config="true" duration-ms="1154" started-at="2017-12-28T08:28:06Z" finished-at="2017-12-28T08:28:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+        <test-method status="PASS" signature="configurations(java.lang.String)[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="configurations" is-config="true" duration-ms="6119" started-at="2017-12-28T08:28:07Z" finished-at="2017-12-28T08:28:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configurations -->
+        <test-method status="PASS" signature="searchFeaturedProduct(java.lang.String)[pri:4, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="searchFeaturedProduct" duration-ms="3635" started-at="2017-12-28T08:28:13Z" finished-at="2017-12-28T08:28:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[The Ruby Programming Language]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchFeaturedProduct -->
+        <test-method status="PASS" signature="tearOff()[pri:0, instance:testCases.UserCreationProductCreationAndSearches@72d1ad2e]" name="tearOff" is-config="true" duration-ms="1139" started-at="2017-12-28T08:28:17Z" finished-at="2017-12-28T08:28:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearOff -->
+      </class> <!-- testCases.UserCreationProductCreationAndSearches -->
+    </test> <!-- CustomerAndProductTests -->
+  </suite> <!-- PracticeTests -->
+</testng-results>
